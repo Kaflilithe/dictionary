@@ -19,6 +19,10 @@ export interface LoginDto {
   password: string;
 }
 
+export interface LoginResponse {
+  token: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -32,10 +36,11 @@ export class AuthService {
   }
 
   login(dto: LoginDto) {
-
+    return this.http.post<LoginResponse>(`${this.url}/login`, dto);
   }
 
   registration(dto: LoginDto) {
     return this.http.post<UserDto>(`${this.url}/registration`, dto);
   }
+
 }
