@@ -1,6 +1,6 @@
 const PROXY_CONFIG = {
     "/": {
-      "target": "http://localhost:8080",
+      "target": "http://127.0.0.1:8080/",
       "secure": false,
       "changeOrigin": true,
       "bypass": function (req, res, proxyOptions) {
@@ -12,5 +12,5 @@ const PROXY_CONFIG = {
       }
     }
   }
-  
+
   module.exports = PROXY_CONFIG;
