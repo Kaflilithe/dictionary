@@ -52,4 +52,13 @@ export class WordService {
     });
     return this.http.post<WordDto>(`${this.url}`, word, {headers});
   }
+
+  delete(id: number) {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+
+    return this.http.delete<WordDto>(`${this.url}/${id}`, {headers});
+  }
 }
