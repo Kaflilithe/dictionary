@@ -1,6 +1,6 @@
 <div class="input-group p-2">
-  <input [(ngModel)]="name" type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-  <button (click)="addWord(name)"  class="btn btn-square">+</button>
+  <input [(ngModel)]="name" type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs"/>
+  <button (click)="addWord(name)" class="btn btn-square">+</button>
 </div>
 
 <div *ngIf="words">
@@ -30,6 +30,14 @@
               placeholder=""
               [(ngModel)]="word.translate"
               class="input w-full input-sm"
+            />
+          </td>
+          <td>
+            <input
+              type="checkbox"
+              [(ngModel)]="word.done"
+              (change)="doneWord(word)"
+              class="toggle"
             />
           </td>
           <td>

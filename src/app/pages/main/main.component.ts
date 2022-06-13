@@ -40,4 +40,8 @@ export class MainComponent implements OnInit {
       this.words = this.words.filter(dto => dto.id !== word.id);
     });
   }
+  doneWord(word: WordDto){
+    this.wordService.done(word).subscribe()
+  }
+
 }
