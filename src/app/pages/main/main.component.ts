@@ -21,10 +21,6 @@ export class MainComponent implements OnInit {
     });
   }
 
-  updateWord(word: WordDto) {
-    this.wordService.updateWord(word).subscribe();
-  }
-
   addWord(name: string) {
     const dto: WordCreateDto = {
       name: name
@@ -40,8 +36,8 @@ export class MainComponent implements OnInit {
       this.words = this.words.filter(dto => dto.id !== word.id);
     });
   }
-  doneWord(word: WordDto){
-    this.wordService.done(word).subscribe()
-  }
 
+  update(word: WordDto) {
+    this.wordService.updateWord(word).subscribe();
+  }
 }

@@ -58,15 +58,6 @@ export class WordService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`
     });
-
     return this.http.delete<WordDto>(`${this.url}/${id}`, {headers});
-  }
-  done(word:WordCreateDto){
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
-    return this.http.put<WordDto>(`${this.url}/${word.id}`, word, {headers});
-
   }
 }

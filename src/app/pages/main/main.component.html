@@ -1,57 +1,61 @@
-<div class="input-group p-2">
-  <input [(ngModel)]="name" type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs"/>
-  <button (click)="addWord(name)" class="btn btn-square">+</button>
-</div>
-
 <div *ngIf="words">
   <div class="overflow-x-auto">
-    <table class="table table-compact w-full">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Job</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let word of words">
-          <td></td>
-          <td>
+    <div class="container mx-auto p-2">
+      <div class="input-group p-2">
+        <input [(ngModel)]="name" type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs"/>
+        <button (click)="addWord(name)" class="btn btn-square">+</button>
+      </div>
+
+      <span class="divider"></span>
+
+      <div class="flex gap-2 items-center bg-base-300 shadow">
+        <div class="flex-1 p-4">Name</div>
+        <div class="flex-1 p-4">Job</div>
+        <div class="w-14"></div>
+        <div class="w-14"></div>
+      </div>
+      <div>
+
+        <form
+          *ngFor="let word of words; let odd = odd;"
+          (change)="update(word)"
+          [class.bg-base-300]="odd"
+          class="flex gap-2 items-center"
+        >
+          <div class="flex-1">
             <input
               type="text"
               placeholder=""
+              name="name"
               [(ngModel)]="word.name"
-              class="input  input-sm"
+              class="input input-sm input-ghost w-full"
             />
-          </td>
-          <td>
+          </div>
+          <div class="flex-1">
             <input
               type="text"
               placeholder=""
+              name="translate"
               [(ngModel)]="word.translate"
-              class="input w-full input-sm"
+              class="input input-sm input-ghost w-full"
             />
-          </td>
-          <td>
+          </div>
+          <div class="flex items-center w-14">
             <input
               type="checkbox"
+              name="done"
               [(ngModel)]="word.done"
-              (change)="doneWord(word)"
-              class="toggle"
+              class="toggle toggle-sm"
             />
-          </td>
-          <td>
-            <button class="btn btn-square btn-ghost" (click)="updateWord(word)">
-              <i class="fa-solid fa-plus"></i>
-            </button>
+          </div>
+          <div class="w-14">
             <button class="btn btn-square btn-ghost" (click)="deleteWord(word.id)">
               <i class="fa-solid fa-trash-can"></i>
             </button>
-          </td>
-        </tr>
-
-      </tbody>
-    </table>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 
