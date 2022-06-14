@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WordCreateDto, WordDto, WordService } from '../../core/services/word.service';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-main',
@@ -9,6 +10,12 @@ import { WordCreateDto, WordDto, WordService } from '../../core/services/word.se
 export class MainComponent implements OnInit {
   name = '';
   words: WordDto[] = [];
+
+  addWordControl = new FormControl('', [Validators.required]);
+
+  get isError() {
+    return this.addWordControl.touched && this.addWordControl.hasError('required')
+  }
 
   constructor(
     public wordService: WordService
@@ -25,6 +32,7 @@ export class MainComponent implements OnInit {
     const dto: WordCreateDto = {
       name: name
     };
+
     this.wordService.addWord(dto).subscribe((word) => {
       this.words.unshift(word);
       this.name = '';
