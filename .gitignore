@@ -41,6 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-main
+go-main
 english.dev.db
 config.yaml
