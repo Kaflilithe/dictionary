@@ -8,10 +8,7 @@ import { AppService, Theme } from './core/services/app.service';
 })
 export class AppComponent implements OnInit {
 
-  theme = {
-    light: Theme.LIGHT,
-    dark: Theme.DARK
-  }
+
 
   constructor(
     public app: AppService

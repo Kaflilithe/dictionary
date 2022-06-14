@@ -6,15 +6,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthPageModule } from './pages/auth-page/auth-page.module';
-import { MainComponent } from './pages/main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './shared/components/core/header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

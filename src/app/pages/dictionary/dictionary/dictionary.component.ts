@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { WordCreateDto, WordDto, WordService } from '../../core/services/word.service';
+import { WordCreateDto, WordDto, WordService } from '../../../core/services/word.service';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  selector: 'app-dictionary',
+  templateUrl: './dictionary.component.html',
+  styleUrls: ['./dictionary.component.scss']
 })
-export class MainComponent implements OnInit {
+export class DictionaryComponent implements OnInit {
   name = '';
   words: WordDto[] = [];
 
   addWordControl = new FormControl('', [Validators.required]);
 
   get isError() {
-    return this.addWordControl.touched && this.addWordControl.hasError('required')
+    return this.addWordControl.touched && this.addWordControl.hasError('required');
   }
 
   constructor(
