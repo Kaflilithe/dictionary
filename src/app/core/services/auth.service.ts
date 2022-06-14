@@ -43,4 +43,7 @@ export class AuthService {
     return this.http.post<UserDto>(`${this.url}/registration`, dto);
   }
 
+  getUser() {
+    return this.http.get<UserDto>(`/api/v1/user`);
+  }
 }
