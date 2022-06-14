@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 
 export interface WordDto {
@@ -28,36 +28,20 @@ export class WordService {
   }
 
   getAll(): Observable<WordDto[]> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
-    return this.http.get(`${this.url}/all`, {headers}).pipe(
+    return this.http.get(`${this.url}/all`).pipe(
       map(data => (data as any).items)
     );
   }
 
   updateWord(word: WordDto) {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
-    return this.http.put(`${this.url}/${word.id}`, word, {headers});
+    return this.http.put(`${this.url}/${word.id}`, word);
   }
 
   addWord(word: WordCreateDto) {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
-    return this.http.post<WordDto>(`${this.url}`, word, {headers});
+    return this.http.post<WordDto>(`${this.url}`, word);
   }
 
   delete(id: number) {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
-    return this.http.delete<WordDto>(`${this.url}/${id}`, {headers});
+    return this.http.delete<WordDto>(`${this.url}/${id}`);
   }
 }
