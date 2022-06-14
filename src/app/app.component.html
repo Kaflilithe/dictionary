@@ -7,6 +7,19 @@
   <div class="flex-1">
     <a class="btn btn-ghost normal-case text-xl" routerLink="/">daisyUI</a>
   </div>
+  <div class="dropdown dropdown-end">
+    <label tabindex="0" class="btn btn-ghost rounded-btn"><i class="fa-solid fa-palette"></i></label>
+    <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-13 mt-4">
+      <li>
+        <a
+          (click)="app.toggleTheme(theme.dark)"
+      ><i class="fa-solid fa-moon"></i></a></li>
+      <li>
+        <a
+          (click)="app.toggleTheme(theme.light)"
+        ><i class="fa-solid fa-sun"></i></a></li>
+    </ul>
+  </div>
   <div class="flex-none">
     <button class="btn btn-square btn-ghost" routerLink="/login">
       login
